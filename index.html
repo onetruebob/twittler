@@ -8,7 +8,7 @@
   <body>
     <h1>Twittler</h1>
     <h2 id="view-name">Empty View</h2>
-    <ul class="tweets"></ul>
+    <ul id="tweets"></ul>
     <script>
 
       $(document).ready(function(){
@@ -25,6 +25,23 @@
         // }
 
       });
+
+      var displayCurrentTweets = function () {
+        var newTweets = streams.home;
+        var $tList = $('#tweets');
+        $tList.children().remove();
+        for(var i = newTweets.length - 1; i >= 0; i--) {
+          var tweet = newTweets[i];
+          var $tweet = $('<li></li>');
+          var $tUser = $('<div class="user-name"></div>');
+          $tUser.text(tweet.user);
+          $tweet.append($tUser);
+          var $tMessage = $('<div class="message"></div>');
+          $tMessage.text(tweet.message);
+          $tweet.append($tMessage);
+          $tweet.appendTo($tList);
+        }
+      };
 
     </script>
   </body>
