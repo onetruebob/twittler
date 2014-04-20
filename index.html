@@ -10,20 +10,11 @@
     <h2 id="view-name">Empty View</h2>
     <ul id="tweets"></ul>
     <script>
+    var msgInterval; //Handle to stop the updates. Defined globally so we can ref it from the concol with clearInterval
 
       $(document).ready(function(){
-        // var $body = $('body');
-        // $body.html('');
-
-        // var index = streams.home.length - 1;
-        // while(index >= 0){
-        //   var tweet = streams.home[index];
-        //   var $tweet = $('<div></div>');
-        //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
-        //   $tweet.appendTo($body);
-        //   index -= 1;
-        // }
-
+        displayCurrentTweets();
+        msgInterval = setInterval(displayCurrentTweets, 3000);
       });
 
       var displayCurrentTweets = function () {
