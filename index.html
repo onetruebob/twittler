@@ -4,16 +4,23 @@
     <script src="jquery.js"></script>
     <!-- <script src="data_generator.js"></script> -->
     <title>Twittler</title>
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
     <h1>Twittler</h1>
     <div class="stream-view">
       <h2 id="view-name">Message Stream</h2>
-      <ol id="tweets"></ol>
+      <ul id="tweets">
+        <li class="tweet"><a href="#">shawndrost</a> said: now is the time for all good men to come to the aid of their country. at: 5/7/2014 9:30 AM</li>
+        <li class="tweet"><a href="#">bobowen</a> said: the quick brown fox jumps over the lazy dog at: 5/7/2014 9:30 AM</li>
+      </ul>
     </div>
     <div class="friend-view">
       <h2>Friends</h2>
-      <ul id="friends"></ul>
+      <ul id="friends">
+        <li><a href="#">shawndrost</a></li>
+        <li><a href="#">bobowen</a></li>
+      </ul>
     </div>
     <!-- <script>
     var msgInterval; //Handle to stop the updates. Defined globally so we can ref it from the concol with clearInterval
