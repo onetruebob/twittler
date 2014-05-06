@@ -132,9 +132,16 @@ body {
 	color: #333;
 }
 
+h2 {
+	font-size: 2em;
+}
+
+/* Header ---------- */
+
 header h1 {
 	font-family: 'Sonsie One', cursive;
 	font-size: 5em;
+	position: relative;
 	/* Gradient from generator */
 	color: rgb(184,225,252); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(184,225,252,1) 0%, rgba(169,210,243,1) 10%, rgba(144,186,228,1) 25%, rgba(144,188,234,1) 37%, rgba(144,191,240,1) 50%, rgba(107,168,229,1) 51%, rgba(162,218,245,1) 83%, rgba(189,243,253,1) 100%); /* FF3.6+ */
@@ -148,5 +155,13 @@ header h1 {
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	text-fill-color: transparent;
-
+}
+header h1:after {
+	background: none;
+	content: "Twittler";
+	left: 0;
+	position: absolute;
+	text-shadow: 0px 4px 7px rgba(150, 150, 150, 1);
+	top: 0;
+	z-index: -1;
 }
