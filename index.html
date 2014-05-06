@@ -2,41 +2,47 @@
 <html>
   <head>
     <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
+    <!-- <script src="data_generator.js"></script> -->
     <title>Twittler</title>
   </head>
   <body>
     <h1>Twittler</h1>
-    <h2 id="view-name">Empty View</h2>
-    <ol id="tweets"></ol>
-    <script>
+    <div class="stream-view">
+      <h2 id="view-name">Message Stream</h2>
+      <ol id="tweets"></ol>
+    </div>
+    <div class="friend-view">
+      <h2>Friends</h2>
+      <ul id="friends"></ul>
+    </div>
+    <!-- <script>
     var msgInterval; //Handle to stop the updates. Defined globally so we can ref it from the concol with clearInterval
 
-      $(document).ready(function(){
-        displayCurrentTweets();
-        msgInterval = setInterval(displayCurrentTweets, 3000);
-      });
+    $(document).ready(function(){
+      displayCurrentTweets();
+      msgInterval = setInterval(displayCurrentTweets, 3000);
+    });
 
-      var displayCurrentTweets = function () {
-        var newTweets = streams.home;
-        var $tList = $('#tweets');
-        $tList.children().remove();
-        for(var i = newTweets.length - 1; i >= 0; i--) {
-          var tweet = newTweets[i];
-          var $tweet = $('<li></li>');
-          var $tUser = $('<div class="user-name"></div>');
-          $tUser.text(tweet.user);
-          $tweet.append($tUser);
-          var $tMessage = $('<div class="message"></div>');
-          $tMessage.text(tweet.message);
-          $tweet.append($tMessage);
-          var $tDateStamp = $('<div class="message"></div>');
-          $tDateStamp.text(tweet.created_at.toLocaleString());
-          $tweet.append($tDateStamp);
-          $tweet.appendTo($tList);
-        }
-      };
+    var displayCurrentTweets = function () {
+      var newTweets = streams.home;
+      var $tList = $('#tweets');
+      $tList.children().remove();
+      for(var i = newTweets.length - 1; i >= 0; i--) {
+        var tweet = newTweets[i];
+        var $tweet = $('<li></li>');
+        var $tUser = $('<div class="user-name"></div>');
+        $tUser.text(tweet.user);
+        $tweet.append($tUser);
+        var $tMessage = $('<div class="message"></div>');
+        $tMessage.text(tweet.message);
+        $tweet.append($tMessage);
+        var $tDateStamp = $('<div class="message"></div>');
+        $tDateStamp.text(tweet.created_at.toLocaleString());
+        $tweet.append($tDateStamp);
+        $tweet.appendTo($tList);
+      }
+    };
 
-    </script>
+    </script> -->
   </body>
 </html>
