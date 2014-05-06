@@ -134,6 +134,12 @@ body {
 
 h2 {
 	font-size: 2em;
+	padding-bottom: .25em;
+}
+
+a {
+	text-decoration: none;
+	color: rgba(162,218,245,1);
 }
 
 /* Header ---------- */
@@ -177,4 +183,14 @@ header h1:after {
 
 .friend-view {
 	width: 250px;
+}
+
+/* Tweet Styles -------- */
+.tweet {
+	padding-bottom: .5em;
+}
+
+.tweet-head {
+	font-size: .75em;
+	color: #999999;
 }
