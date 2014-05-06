@@ -8,7 +8,7 @@
   <body>
     <h1>Twittler</h1>
     <h2 id="view-name">Empty View</h2>
-    <ul id="tweets"></ul>
+    <ol id="tweets"></ol>
     <script>
     var msgInterval; //Handle to stop the updates. Defined globally so we can ref it from the concol with clearInterval
 
@@ -30,6 +30,9 @@
           var $tMessage = $('<div class="message"></div>');
           $tMessage.text(tweet.message);
           $tweet.append($tMessage);
+          var $tDateStamp = $('<div class="message"></div>');
+          $tDateStamp.text(tweet.created_at.toLocaleString());
+          $tweet.append($tDateStamp);
           $tweet.appendTo($tList);
         }
       };
