@@ -55,6 +55,12 @@
         $fList.append($makeFriendElement(users[i], users[i]));
       }
 
+      $('#tweets').on('click', 'a', function (event){
+        event.preventDefault();
+        filteredUser = $(this).data('userName');
+        displayCurrentTweets();
+      });
+
       $('#friends').on('click', 'a', function (event){
         event.preventDefault();
         filteredUser = $(this).data('userName');
@@ -80,8 +86,11 @@
 
       var $makeTweetHeader = function (tweet) {
         var $tweetHead = $('<div class="tweet-head"></div>'); //building out header
-        $tweetHead.append($('<a href="#">' + getTweetCreator(tweet) + '</a>'));
-        $tweetHead.html($tweetHead.html() + ' at: ' + getTweetTimestamp(tweet));
+        var $tUserLink = $('<a href="#"></a>');
+        $tUserLink.text(getTweetCreator(tweet));
+        $tUserLink.data('userName', getTweetCreator(tweet));
+        $tweetHead.text(' at: ' + getTweetTimestamp(tweet));
+        $tweetHead.prepend($tUserLink);
         return $tweetHead;
       };
 
