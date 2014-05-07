@@ -28,6 +28,7 @@
     </div>
     <script>
     var msgInterval; //Handle to stop the updates. Defined globally so we can ref it from the concol with clearInterval
+    var filteredUser = 'all'
     var lastTweetIdx = 0;
 
     $(document).ready(function(){
@@ -41,8 +42,10 @@
       $tList.children().remove();
       for(var i = newTweets.length - 1; i >= 0; i--) {
         var tweet = newTweets[i];
-        var $tweet = $makeTweetElement(tweet);
-        $tweet.appendTo($tList);
+        if (filteredUser === 'all' || tweet.user === filteredUser) {
+          var $tweet = $makeTweetElement(tweet);
+          $tweet.appendTo($tList);
+        }
       }
     };
 
