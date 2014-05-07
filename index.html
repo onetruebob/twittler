@@ -55,6 +55,12 @@
         $fList.append($makeFriendElement(users[i], users[i]));
       }
 
+      $('#friends').on('click', 'a', function (event){
+        event.preventDefault();
+        filteredUser = $(this).data('userName');
+        displayCurrentTweets();
+      });
+
     };
 
     var displayCurrentTweets = function () {
