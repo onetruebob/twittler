@@ -32,9 +32,30 @@
     var lastTweetIdx = 0;
 
     $(document).ready(function(){
+      updateFriendsList();
       displayCurrentTweets();
       msgInterval = setInterval(displayCurrentTweets, 3000);
     });
+
+    var updateFriendsList = function () {
+      var $makeFriendElement = function (data, friendName) {
+        var $friend = $('<li></li>');
+        var $fLink = $('<a href="#"></a>');
+        $fLink.data('userName', data);
+        $fLink.text(friendName);
+        $friend.append($fLink);
+        return $friend;
+      };
+
+      var $fList = $('#friends');
+      $fList.children().remove();
+      $fList.append($makeFriendElement('all', 'Show all friends'));
+
+      for(var i = 0; i < users.length; i++) {
+        $fList.append($makeFriendElement(users[i], users[i]));
+      }
+
+    };
 
     var displayCurrentTweets = function () {
       var newTweets = streams.home;
