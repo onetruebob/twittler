@@ -68,6 +68,7 @@
       };
 
       var $tweet = $('<li></li>'); //tweet container
+      $tweet.addClass('tweet');
       $tweet.append($makeTweetHeader(tweet));
       var $tMessage = $('<div class="tweet-body"></div>');
       $tMessage.text(getTweetMessage(tweet));
