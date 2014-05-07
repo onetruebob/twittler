@@ -33,8 +33,8 @@
 
     $(document).ready(function(){
       updateFriendsList();
-      displayCurrentTweets();
-      msgInterval = setInterval(displayCurrentTweets, 3000);
+      updateTweetDisplay();
+      msgInterval = setInterval(updateTweetDisplay, 3000);
     });
 
     var updateFriendsList = function () {
@@ -58,27 +58,32 @@
       $('#tweets').on('click', 'a', function (event){
         event.preventDefault();
         filteredUser = $(this).data('userName');
-        displayCurrentTweets();
+        updateTweetDisplay();
       });
 
       $('#friends').on('click', 'a', function (event){
         event.preventDefault();
         filteredUser = $(this).data('userName');
-        displayCurrentTweets();
+        updateTweetDisplay();
       });
 
     };
 
-    var displayCurrentTweets = function () {
-      var newTweets = streams.home;
+    var updateTweetDisplay = function () {
+      var newTweets = null;
       var $tList = $('#tweets');
+
+      if(filteredUser === 'all') {
+        newTweets = streams.home;
+      } else {
+        newTweets = streams.users[filteredUser];
+      }
+
       $tList.children().remove();
       for(var i = newTweets.length - 1; i >= 0; i--) {
         var tweet = newTweets[i];
-        if (filteredUser === 'all' || tweet.user === filteredUser) {
-          var $tweet = $makeTweetElement(tweet);
-          $tweet.appendTo($tList);
-        }
+        var $tweet = $makeTweetElement(tweet);
+        $tweet.appendTo($tList);
       }
     };
 
